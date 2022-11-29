@@ -57,14 +57,21 @@ public class RandomExceptionsClass {
 
     private static int callMethod4(String s) {
         callMethod5(s);
-        return Integer.parseInt(s);
+        boolean flag = true;
+        for (char x: s.toCharArray()) {
+            if(!Character.isDigit(x)) flag = false;
+        }
+        if (flag)  return Integer.parseInt(s);
+        else {
+            throw new RuntimeException("Строка не содержит число");
+        }
     }
 
     private static void callMethod5(String s) {
         callMethod6("");
-        String[] strings = new String[5];
-        for (int i = 1; i < strings.length; i++) {
-            strings[i] = s;
-        }
+            String[] strings = new String[5];
+            for (int i = 1; i < strings.length; i++) {
+                strings[i] = s;
+            }
     }
 }
