@@ -39,7 +39,7 @@ public class RandomExceptionsClass {
 
         File file = new File("1.txt");
         if (file.exists()) {
-            FileInputStream fis = new FileInputStream("1.txt");
+            FileInputStream fis = new FileInputStream(file);
             fis.read();
             if (fis.available() > 0) throw new RuntimeException();
         } else {
